@@ -5,6 +5,7 @@ let  alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
 let  alertValidaciones = document.getElementById("alertValidaciones");
 let tablaListaCompras = document.getElementById("tablaListaCompras");
 const cuerpoTabla = tablaListaCompras.getElementsByTagName("tbody").item(0);
+let btnClear = document.getElementById("btnClear");
 
 const contadorProductos = document.getElementById("contadorProductos")
 const productosTotal = document.getElementById("productosTotal")/////////
@@ -99,6 +100,26 @@ btnAgregar.addEventListener("click", function(event){
         txtName.focus();
     }//if isValid
 }); //btnAgregar.addEventListener click
+
+btnClear.addEventListener("click", function(event){
+    cuerpoTabla.innerHTML ="";
+    cont = 0;
+    costoTotal = 0;
+    totalEnProductos =0;
+
+    contadorProductos.textContent="0";
+    precioTotal.textContent = "0";
+    productosTotal.textContent= "$0";
+
+    localStorage.removeItem("datos");
+    localStorage.removeItem("resumen");
+    datos = [];
+
+    txtName.value ="";
+    txtNumber.value ="";
+    txtName.focus();
+
+});//btn Limpiar todo
 
 window.addEventListener("load", function(event){
     event.preventDefault();
